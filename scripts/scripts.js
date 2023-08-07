@@ -97,15 +97,6 @@ async function loadEager(doc) {
     await waitForLCP(LCP_BLOCKS);
   }
 
-  // Load Launch properties (adobedtm)
-  if (window.location.host.startsWith('localhost')) {
-    await loadScript('https://assets.adobedtm.com/6a74768abd57/a692f024da9a/launch-6005424708d4-development.min.js');
-  } else if (window.location.host.endsWith('.page')) {
-    await loadScript('https://assets.adobedtm.com/6a74768abd57/a692f024da9a/launch-166628721e50-staging.min.js');
-  } else {
-    await loadScript('https://assets.adobedtm.com/6a74768abd57/a692f024da9a/launch-3ae9c8b61452.min.js');
-  }
-
   try {
     /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
     if (window.innerWidth >= 900 || sessionStorage.getItem('fonts-loaded')) {
